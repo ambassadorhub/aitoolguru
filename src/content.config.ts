@@ -1,6 +1,15 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
+
+const globId = ({ entry }: { entry: string }) => entry.replace(/\.(md|mdx)$/, "");
 
 const legal = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/legal",
+    generateId: globId,
+  }),
   schema: z.object({
     page: z.string(),
     pubDate: z.date(),
@@ -8,6 +17,11 @@ const legal = defineCollection({
 });
 
 const store = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/store",
+    generateId: globId,
+  }),
   schema: ({ image }) =>
     z.object({
       price: z.string(),
@@ -38,8 +52,12 @@ const store = defineCollection({
     }),
 });
 
-
 const sites = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/sites",
+    generateId: globId,
+  }),
   schema: ({ image }) =>
     z.object({
       live: z.string(),
@@ -56,7 +74,7 @@ const sites = defineCollection({
         )
         .optional(),
       thumbnail: z.object({
-        url: image(), 
+        url: image(),
         alt: z.string(),
       }),
       tags: z.array(z.string().optional()).optional(),
@@ -64,17 +82,20 @@ const sites = defineCollection({
 });
 
 const posts = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/posts",
+    generateId: globId,
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
       pubDate: z.date(),
       description: z.string(),
-
       image: z.object({
-        url: image(), 
+        url: image(),
         alt: z.string(),
       }),
-     
       tags: z.array(z.string()),
     }),
 });

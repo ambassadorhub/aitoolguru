@@ -1,85 +1,73 @@
 {
-  "$ref": "#/definitions/sites",
-  "definitions": {
-    "sites": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "live": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "isNew": {
+      "type": "boolean"
+    },
+    "details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "thumbnail": {
       "type": "object",
       "properties": {
-        "live": {
+        "url": {
           "type": "string"
         },
-        "title": {
-          "type": "string"
-        },
-        "tagline": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "isNew": {
-          "type": "boolean"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "label",
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "thumbnail": {
-          "type": "object",
-          "properties": {
-            "url": {
-              "type": "string"
-            },
-            "alt": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "url",
-            "alt"
-          ],
-          "additionalProperties": false
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "not": {}
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
-        },
-        "$schema": {
+        "alt": {
           "type": "string"
         }
       },
       "required": [
-        "live",
-        "title",
-        "tagline",
-        "description",
-        "thumbnail"
+        "url",
+        "alt"
       ],
       "additionalProperties": false
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "live",
+    "title",
+    "tagline",
+    "description",
+    "thumbnail"
+  ],
+  "additionalProperties": false
 }

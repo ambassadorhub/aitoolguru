@@ -8,7 +8,7 @@ const allSites = await getCollection("sites");
 const posts = allSites.map((post) => ({
   title: post.data.title,
   tagline: post.data.tagline,
-  slug: post.slug,
+  id: post.id,
 }));
 ---
 <div class="relative p-4">
@@ -131,7 +131,7 @@ const posts = allSites.map((post) => ({
       searchResults.innerHTML = results
         .map(
           (result) => `
-            <a href="/sites/site/${result.item.slug}" class="block bg-white rounded-lg px-8 py-4 hover:bg-base-100 duration-300 group">
+            <a href="/sites/site/${result.item.id}" class="block bg-white rounded-lg px-8 py-4 hover:bg-base-100 duration-300 group">
               <h3  class="font-medium text-base uppercase text-base-900 group-hover:text-accent-600">
                 ${result.item.title}
               </h3>
