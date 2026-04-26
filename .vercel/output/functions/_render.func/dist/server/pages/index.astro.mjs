@@ -1,0 +1,22 @@
+import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CNJSKm56.mjs';
+import 'piccolore';
+import { $ as $$Layout } from '../chunks/Layout_Bbj_QSzu.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Home", "description": "Honest AI Tool Reviews for UK Small Businesses" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="hero"> <div class="hero-content"> <h1>Best AI Tools for Small Business UK 2026</h1> <p>Honest reviews, real pricing, and clear recommendations for UK SMEs</p> <a href="#latest-reviews" class="btn btn-primary">Browse Reviews &rarr;</a> </div> </section> <section class="content-section" id="latest-reviews"> <article class="animate-on-scroll"> <h2 class="text-center mb-2">The Bottom Line (for those in a hurry)</h2> <p class="text-center">UK small businesses are finally catching up with AI, but with hundreds of tools on the market, choosing the right ones is harder than ever. This guide cuts through the noise.</p> <div class="table-container"> <table> <thead> <tr> <th>Category</th> <th>Best Tool</th> <th>Starting Price</th> </tr> </thead> <tbody> <tr><td>All-round AI assistant</td><td><strong>ChatGPT Plus</strong></td><td>Approx £16/month</td></tr> <tr><td>Marketing copy & content</td><td><strong>Jasper AI</strong></td><td>Approx £30/month</td></tr> <tr><td>CRM & sales</td><td><strong>HubSpot</strong></td><td>Free (paid from £18/month)</td></tr> <tr><td>Design & visuals</td><td><strong>Canva Magic Studio</strong></td><td>Approx £8/month</td></tr> <tr><td>Docs & team knowledge</td><td><strong>Notion AI</strong></td><td>Approx £8/user/month</td></tr> <tr><td>Project management</td><td><strong>ClickUp</strong></td><td>Free (paid from Approx £6/user/month)</td></tr> <tr><td>Writing polish</td><td><strong>Grammarly</strong></td><td>Free (paid from Approx £10/month)</td></tr> <tr><td>SEO</td><td><strong>Semrush</strong></td><td>Approx £95/month</td></tr> </tbody> </table> </div> <p class="text-center"><strong>Entry-level stack total: Approx £35/month</strong>, less than one hour of freelance time.</p> <div class="newsletter-box animate-on-scroll"> <h3>Stay Updated</h3> <p>Get the latest AI tool reviews and recommendations delivered to your inbox.</p> <form class="mt-2" action="/api/subscribe" method="POST"> <input type="email" placeholder="Enter your email" required style="padding: 0.75rem 1rem; border-radius: var(--radius); border: 1px solid var(--border); margin-right: 0.5rem; min-width: 250px;"> <button type="submit" class="btn btn-primary">Subscribe</button> </form> </div> </article> </section> ` })}`;
+}, "/home/bass/.openclaw/workspace/aitoolguru-site/src/pages/index.astro", void 0);
+
+const $$file = "/home/bass/.openclaw/workspace/aitoolguru-site/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
