@@ -16,6 +16,16 @@ import { getCollection } from "astro:content";
 const alltools = await getCollection("sites");
 // Frontmatter
 const { frontmatter } = Astro.props;
+// Map tool titles to screenshot IDs
+const screenshotMap: Record<string, string> = {
+  "ChatGPT": "1",
+  "Claude": "2", 
+  "Jasper AI": "3",
+  "Copy.ai": "4",
+  "Semrush": "5"
+};
+const toolScreenshotId = screenshotMap[frontmatter.title];
+const hasScreenshot = !!toolScreenshotId;
 ---
 
 <BaseLayout showSearch={true}>
@@ -50,11 +60,24 @@ const { frontmatter } = Astro.props;
         </Button>
       </div>
       <div class="p-8 bg-base-50 rounded-lg mt-12">
-        <div class="flex items-center justify-center h-48 bg-base-100 rounded border-2 border-dashed border-base-300">
-          <Text tag="p" variant="textSM" class="text-base-400">
-            Screenshot placeholder - add {frontmatter.title} screenshot to /src/images/sites/
-          </Text>
-        </div>
+        {hasScreenshot ? (
+          <div class="rounded-lg overflow-hidden border border-base-200 shadow-sm">
+            <img 
+              src={`/images/sites/${toolScreenshotId}-screenshot.png`}
+              alt={`${frontmatter.title} dashboard screenshot`}
+              width="1920"
+              height="1080"
+              class="w-full h-auto"
+              loading="eager"
+            />
+          </div>
+        ) : (
+          <div class="flex items-center justify-center h-48 bg-base-100 rounded border-2 border-dashed border-base-300">
+            <Text tag="p" variant="textSM" class="text-base-400">
+              Screenshot placeholder - add {frontmatter.title} screenshot to /src/images/sites/
+            </Text>
+          </div>
+        )}
       </div>
       <dl class="mt-4 divide-y divide-base-100">
         {
