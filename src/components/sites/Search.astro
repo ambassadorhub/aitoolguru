@@ -130,16 +130,17 @@ const posts = allSites.map((post) => ({
       // Generate HTML for each search result
       searchResults.innerHTML = results
         .map(
-          (result) => `
-            <a href="/sites/site/${result.item.id}" class="block bg-white rounded-lg px-8 py-4 hover:bg-base-100 duration-300 group">
-              <h3  class="font-medium text-base uppercase text-base-900 group-hover:text-accent-600">
-                ${result.item.title}
-              </h3>
-              <p  class="text-base-600 text-sm block">
-                ${result.item.tagline}
-              </p>
-            </a>
-          `
+          (result) =>
+            '<a href="/sites/site/' +
+            result.item.id +
+            '" class="block bg-white rounded-lg px-8 py-4 hover:bg-base-100 duration-300 group">' +
+            '<h3 class="font-medium text-base uppercase text-base-900 group-hover:text-accent-600">' +
+            result.item.title +
+            "</h3>" +
+            '<p class="text-base-600 text-sm block">' +
+            result.item.tagline +
+            "</p>" +
+            "</a>"
         )
         .join(""); // Join all results into a single string of HTML
       // Make the search results visible
