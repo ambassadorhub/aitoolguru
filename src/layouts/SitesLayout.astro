@@ -56,16 +56,15 @@ const hasScreenshot = ["1", "2", "3", "4", "5"].includes(toolId || "");
         </Button>
       </div>
       <div class="p-8 bg-base-50 rounded-lg mt-12">
-        {hasScreenshot ? (
+        {hasScreenshot && imgSrc ? (
           <div class="rounded-lg overflow-hidden border border-base-200 shadow-sm">
             <img 
-              src={`/images/sites/${toolId}-screenshot.png`} 
+              src={imgSrc} 
               alt={`${frontmatter.title} dashboard screenshot`}
               width="1920"
               height="1080"
               class="w-full h-auto"
               loading="eager"
-              onerror={`this.onerror=null; this.src='/images/sites/${toolId}-screenshot.jpg';`}
             />
           </div>
         ) : (
