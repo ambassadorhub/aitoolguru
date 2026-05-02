@@ -1,0 +1,37 @@
+---
+// Layout
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Fundation
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import SiteCard from "@/components/sites/SiteCard.astro";
+// Retrieve all posts from the "sites" collection
+import { getCollection } from "astro:content";
+const allSites = await getCollection("sites");
+// Sort by id (numeric order)
+const sortedSites = allSites.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24 lg:pt-48">
+      <div class="text-balance max-w-xl">
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="text-base-900 font-display font-thin"
+        >
+          AI Tools Directory
+        </Text>
+        <Text tag="p" variant="textBase" class="text-base-600 mt-4">
+          Honest reviews and recommendations for AI tools that actually help UK small businesses grow.
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
+        {sortedSites.map((site) => <SiteCard post={site} />)}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
