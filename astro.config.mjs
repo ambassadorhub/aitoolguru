@@ -18,8 +18,8 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://aitoolguru.vercel.app',
-  output: 'server',
+  site: 'https://aitoolguru.co.uk',
+  output: 'hybrid',
   adapter: vercel(),
   integrations: [sitemap(), mdx()]
 });
