@@ -1,0 +1,32 @@
+[
+  {
+    "tool": "semrush",
+    "url": "https://www.demandsage.com/semrush-review/",
+    "filter": "semrush|dashboard|screenshot|interface"
+  },
+  {
+    "tool": "jasper",
+    "url": "https://compareaitools.org/jasper-ai-review/",
+    "filter": "jasper|dashboard|screenshot|interface"
+  },
+  {
+    "tool": "hubspot",
+    "url": "https://www.business.com/software/hubspot-crm-review/",
+    "filter": "hubspot|crm|dashboard|screenshot"
+  },
+  {
+    "tool": "chatgpt",
+    "url": "https://www.zdnet.com/article/chatgpt-everything-you-need-to-know/",
+    "filter": "chatgpt|openai|interface"
+  },
+  {
+    "tool": "claude",
+    "url": "https://www.anthropic.com/claude",
+    "filter": "claude|anthropic|interface"
+  },
+  {
+    "tool": "copyai",
+    "url": "https://www.copy.ai",
+    "filter": "copyai|dashboard|interface"
+  }
+]
