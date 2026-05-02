@@ -16,8 +16,12 @@ export async function getStaticPaths() {
 }
 const { page } = Astro.props;
 const { Content } = await render(page);
+// Check for screenshot
+const toolId = page.id;
+const hasScreenshot = ["1", "2", "3", "4", "5"].includes(toolId);
+const screenshotSrc = hasScreenshot ? `/images/sites/${toolId}-screenshot.png` : null;
 ---
 
-<SitesLayout frontmatter={page.data}>
+<SitesLayout frontmatter={page.data} hasScreenshot={hasScreenshot} screenshotSrc={screenshotSrc}>
   <Content />
 </SitesLayout>
