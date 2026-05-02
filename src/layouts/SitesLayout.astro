@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
 <BaseLayout showSearch={true}>
   <section>
     <Wrapper variant="standard" class="py-24">
-      <div class="flex flex-wrap justify-between gap-4">
+      <div class="flex flex-wrap justify-between gap-4 items-start">
         <div class="max-w-xl text-balance">
           <Text
             tag="h1"
@@ -30,30 +30,31 @@ const { frontmatter } = Astro.props;
           >
             {frontmatter.title}
           </Text>
-          <Text tag="p" variant="textSM" class="text-base-600 mt-4">
+          <Text tag="p" variant="textBase" class="text-base-600 mt-2">
+            {frontmatter.tagline}
+          </Text>
+          <Text tag="p" variant="textSM" class="text-base-500 mt-4">
             {frontmatter.description}
           </Text>
         </div>
         <Button
-          iconOnly
-          size="xs"
-          variant="default"
+          isLink
+          size="sm"
+          variant="accent"
           href={frontmatter.live}
-          title={frontmatter.title}
+          title={`Visit ${frontmatter.title}`}
+          class="shrink-0"
         >
+          Visit Site
           <ArrowupRight slot="icon" class="size-4" />
         </Button>
       </div>
       <div class="p-8 bg-base-50 rounded-lg mt-12">
-        <Image
-          width={1400}
-          height={1400}
-          loading="lazy"
-          decoding="async"
-          src={frontmatter.thumbnail.url}
-          alt={frontmatter.thumbnail.url}
-          class="size-full aspect-8/5 object-top rounded shadow"
-        />
+        <div class="flex items-center justify-center h-48 bg-base-100 rounded border-2 border-dashed border-base-300">
+          <Text tag="p" variant="textSM" class="text-base-400">
+            Screenshot placeholder — add {frontmatter.title} screenshot to /src/images/sites/
+          </Text>
+        </div>
       </div>
       <dl class="mt-4 divide-y divide-base-100">
         {
@@ -77,6 +78,26 @@ const { frontmatter } = Astro.props;
           ))
         }
       </dl>
+      
+      <!-- Affiliate CTA -->
+      <div class="mt-12 p-8 bg-accent-50 border border-accent-200 rounded-lg text-center">
+        <Text tag="h3" variant="textLG" class="text-accent-900 font-medium">
+          Try {frontmatter.title} Free
+        </Text>
+        <Text tag="p" variant="textSM" class="text-accent-700 mt-2">
+          Start your free trial today. No credit card required.
+        </Text>
+        <Button
+          isLink
+          size="md"
+          variant="accent"
+          href={frontmatter.live}
+          class="mt-4"
+        >
+          Get Started Now
+          <ArrowupRight slot="icon" class="size-4" />
+        </Button>
+      </div>
     </Wrapper>
   </section>
   <section>

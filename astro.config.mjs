@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx"; 
+import mdx from "@astrojs/mdx";
+import vercel from '@astrojs/vercel';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
@@ -17,6 +18,8 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://yourdomain.com',
+  site: 'https://aitoolguru.vercel.app',
+  output: 'server',
+  adapter: vercel(),
   integrations: [sitemap(), mdx()]
 });

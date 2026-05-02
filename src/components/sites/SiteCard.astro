@@ -4,32 +4,48 @@ import { Image } from "astro:assets";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 // Content
-const { title, url, thumbnail, live } = {
+const { title, url, thumbnail, live, tagline, details, tags } = {
   url: "/sites/site/" + Astro.props.post.id,
   live: Astro.props.post.data.live,
   title: Astro.props.post.data.title,
+  tagline: Astro.props.post.data.tagline,
   thumbnail: Astro.props.post.data.thumbnail.url,
+  details: Astro.props.post.data.details || [],
+  tags: Astro.props.post.data.tags || [],
 };
 ---
 
 <div
   class="group-hover:opacity-30 hover:opacity-100 peer hover:peer-hover:opacity-30 duration-300 group"
 >
-  <div class="relative p-8 bg-base-50 rounded-lg">
-    <Image
-      width="900"
-      height="900"
-      src={thumbnail}
-      alt={Astro.props.post.data.thumbnail.alt}
-      class="object-cover aspect-8/5 w-full object-top rounded shadow"
-    />
-    <a href={url} title={title}>
-      <span class="absolute inset-0"></span>
+  <div class="relative p-6 bg-base-50 rounded-lg border border-base-200">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center text-accent-600 font-bold text-sm">
+        {title.charAt(0)}
+      </div>
+      <div>
+        <Text tag="h3" variant="textSM" class="text-base-900 font-semibold capitalize">
+          {title}
+        </Text>
+        <Text tag="p" variant="textXS" class="text-base-500">
+          {tagline}
+        </Text>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1 mb-3">
+      {details.slice(0, 2).map((detail) => (
+        <span class="text-xs bg-base-100 text-base-600 px-2 py-1 rounded">
+          {detail.label}: {detail.value}
+        </span>
+      ))}
+    </div>
+    <div class="flex flex-wrap gap-1">
+      {tags.slice(0, 3).map((tag) => (
+        <span class="text-xs text-accent-600 capitalize">#{tag}</span>
+      ))}
+    </div>
+    <a href={url} title={title} class="mt-4 block">
+      <span class="text-sm text-accent-600 font-medium hover:text-accent-700">Read Review &rarr;</span>
     </a>
-  </div>
-  <div class="flex items-center mt-2 gap-2">
-    <Text tag="h3" variant="textSM" class="text-base-600 capitalize">
-      {title}
-    </Text>
   </div>
 </div>

@@ -1,6 +1,5 @@
 ---
 // Assets
-import Logo from "@/components/assets/Logo.astro";
 import Symbol from "@/components/assets/Symbol.astro";
 // Fundation
 import Text from "@/components/fundations/elements/Text.astro";
@@ -18,11 +17,13 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           variant="displayLG"
           class="text-base-900 font-display font-light mt-12"
         >
-          Stay connected to the future of Carbon
+          Stay Ahead of the AI Curve
         </Text>
       </div>
       <form
         class="flex flex-col gap-2 max-w-md mx-auto items-start sm:items-center mt-8"
+        action="/api/subscribe"
+        method="POST"
       >
         <label class="sr-only" for="footer-email">Email address</label>
         <input
@@ -46,11 +47,11 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         </Button>
       </form>
       <div class="flex flex-wrap gap-4 mt-12 justify-center">
-        <a href="#_" class="text-base-600 hover:text-accent-600">Twitter</a>
-        <a href="#_" class="text-base-600 hover:text-accent-600">Pinterest</a>
-        <a href="#_" class="text-base-600 hover:text-accent-600">Instagram</a>
+        <a href="/" class="text-base-600 hover:text-accent-600">Home</a>
+        <a href="/sites/" class="text-base-600 hover:text-accent-600">AI Tools</a>
+        <a href="/blog/" class="text-base-600 hover:text-accent-600">Reviews</a>
+        <a href="/advertise/" class="text-base-600 hover:text-accent-600">Advertise</a>
       </div>
     </div>
   </Wrapper>
-  <Logo class="text-base-100 mt-8 -mx-24 -mb-24" />
 </footer>
