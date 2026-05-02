@@ -19,9 +19,7 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://aitoolguru.co.uk',
-  output: 'hybrid',
+  output: 'static',
   adapter: vercel(),
   integrations: [sitemap(), mdx()],
-  // Default all pages to static/prerendered in hybrid mode
-  // Only API routes will be serverless
 });
